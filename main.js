@@ -20,16 +20,18 @@ let mostrarProductos = (productos) => {
         <h2>ID: ${item.id}</h2>
         <p>Nombre:${item.nombre}</p>}
         <b>${item.precio}</b>
-        `});
-    
+        `});  
 };
 
 mostrarProductos(productos);
 
 
 const agregar = (id) => {
-    alert(pantalon.id);
-    const agregarProducto = (id, nombre, precio);
+    console.log(id);
+    const seleccion= productos.find(prod =>prod.id==id);
+
+    console.log(seleccion);
+    alert(JSON.stringify(seleccion));
         let productosStorage = localStorage.getItem("productos");
         let data = JSON.parse(productosStorage);
 };
@@ -52,17 +54,19 @@ productos.forEach ((item) => {
 })
 
 let formulario = document.getElementById("formulario");
+let inputText = document.getElementById(`Text`);
+let inputNumber = document.getElementById(`Number`);
 
 console.log(formulario);
 
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        let inputs = e.target.elements;
-        let nombre = inputs.nombre.value;
-        let precio = parseFloat(inputs.precio.value);
+        let precio = parseFloat(Number.value);
+        let nombre = Text.value;
 
         productos.push({id:productos.length + 1, nombre, precio});
+        console.log(productos);
     
     });
 
